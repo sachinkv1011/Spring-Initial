@@ -1,6 +1,9 @@
 package com.example.studentapp_backend1.controller;
 
+import com.example.studentapp_backend1.model.Students;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -11,14 +14,10 @@ public class StudentController {
         return "Welcome to my website";
     }
 
-    @GetMapping("/contact")
-    public String ContactPage(){
-        return "welcome to my contact page";
-    }
+   @PostMapping(path = "/add",consumes = "application/json",produces = "application/json")
+    public String addStudent(@RequestBody Students s){
 
-    @GetMapping("/gallery")
-    public String Gallery(){
-        return "Welcome to my Gallery";
-    }
+        return "Student added successfully";
+   }
 
 }
